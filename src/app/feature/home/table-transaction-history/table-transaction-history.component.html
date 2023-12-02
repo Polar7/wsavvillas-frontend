@@ -1,0 +1,27 @@
+<br>
+<table class="table table-striped" aria-describedby="Tabla con el historial de transacciones">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Numero de solicitud</th>
+    <th scope="col">Tipo de busqueda</th>
+    <th scope="col">Numero de factura o cedula</th>
+    <th scope="col">Tipo de busqueda / Respuesta</th>
+    <th scope="col">Mensaje de respuesta</th>
+    <th scope="col">Fecha de la solicitud/respuesta</th>
+  </tr>
+  </thead>
+  <tbody>
+  @for (transaction of listTransactionHistory(); track transaction.id) {
+  <tr>
+    <td>{{transaction.id}}</td>
+    <td>{{transaction.requestId}}</td>
+    <td>{{transaction.searchType}}</td>
+    <td>{{transaction.invoiceId}}</td>
+    <td>{{transaction.numberStatus}}</td>
+    <td>{{transaction.messageStatus}}</td>
+    <td>{{transaction.requestDate}}</td>
+  </tr>
+  }
+  </tbody>
+</table>
