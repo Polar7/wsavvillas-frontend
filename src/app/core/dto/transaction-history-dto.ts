@@ -24,6 +24,16 @@ export interface TransactionHistoryDto {
   invoiceId: string;
 
   /**
+   * Cedula a la que pertenece una factura
+   */
+  invoiceCard: string;
+
+  /**
+   * Valor de la factura
+   */
+  paidValue: number;
+
+  /**
    * Tipo de busqueda cuando se consulta una factura o numero de respuesta a la solicitud
    */
   numberStatus: number;
@@ -37,6 +47,16 @@ export interface TransactionHistoryDto {
    * Fecha de la solicitud y respuesta
    */
   requestDate: Date;
+
+  /**
+  * Campo para indicar si la peticion la hace la universidad o el banco
+  */
+  whoSendPetition: string;
+
+  /**
+   * Campo que indica a que web service pertenece la transaccion
+   */
+  strWebService: string;
 
   /**
    * Guarda las excepciones de ser necesario

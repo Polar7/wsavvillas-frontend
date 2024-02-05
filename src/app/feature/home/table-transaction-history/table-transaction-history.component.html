@@ -1,27 +1,62 @@
-<br>
 <table class="table table-striped" aria-describedby="Tabla con el historial de transacciones">
   <thead>
   <tr>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.id"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.requestId"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.whoSendPetition"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.searchType"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.invoiceCard"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.invoiceId"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.paidValue"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.numberStatus"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.messageStatus"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.requestDate"></th>
+    <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.strWebService"></th>
+    <th scope="colgroup">
+      <select class="form-select-sm" [(ngModel)]="filter.filterOption">
+        <option value="1" selected>Contiene</option>
+        <option value="2">Igual a</option>
+      </select>
+    </th>
+    <th colspan="1" scope="colgroup">
+      <button type="button" class="btn btn-primary" (click)="onSearchTransaction()">Buscar</button>
+    </th>
+  </tr>
+  <tr>
     <th scope="col">ID</th>
-    <th scope="col">Numero de solicitud</th>
-    <th scope="col">Tipo de busqueda</th>
-    <th scope="col">Numero de factura o cedula</th>
-    <th scope="col">Tipo de busqueda / Respuesta</th>
+    <th scope="col">Número de solicitud</th>
+    <th scope="col">Entidad que solicita/responde</th>
+    <th scope="col">Tipo de búsqueda</th>
+    <th scope="col">Cedula que pertenece a la factura consultada</th>
+    <th scope="col">Número de factura o cedula</th>
+    <th scope="col">Valor de la factura</th>
+    <th scope="col">Tipo de búsqueda / Respuesta</th>
     <th scope="col">Mensaje de respuesta</th>
     <th scope="col">Fecha de la solicitud/respuesta</th>
+    <th scope="col" colspan="3">Web service usado</th>
   </tr>
   </thead>
   <tbody>
-  @for (transaction of listTransactionHistory(); track transaction.id) {
-  <tr>
-    <td>{{transaction.id}}</td>
-    <td>{{transaction.requestId}}</td>
-    <td>{{transaction.searchType}}</td>
-    <td>{{transaction.invoiceId}}</td>
-    <td>{{transaction.numberStatus}}</td>
-    <td>{{transaction.messageStatus}}</td>
-    <td>{{transaction.requestDate}}</td>
-  </tr>
-  }
+    @for (transaction of tableFilter; track transaction.id) {
+      <tr>
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.requestId }}</td>
+        <td>{{ transaction.whoSendPetition }}</td>
+        <td>{{ transaction.searchType }}</td>
+        <td>{{ transaction.invoiceCard }}</td>
+        <td>{{ transaction.invoiceId }}</td>
+        <td>{{ transaction.paidValue | currency:'$' }}</td>
+        <td>{{ transaction.numberStatus }}</td>
+        <td>{{ transaction.messageStatus }}</td>
+        <td>{{ transaction.requestDate | date:'medium' }}</td>
+        <td colspan="3">{{ transaction.strWebService }}</td>
+      </tr>
+    }
   </tbody>
 </table>
+<mat-paginator length="{{totalRequests}}"
+               [pageSizeOptions]="[5, 10, 25, 50, 100]"
+               (page)="changePage($event)"
+               showFirstLastButtons="true"
+               pageSize="{{pageSizePaginator}}">
+</mat-paginator>
