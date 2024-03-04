@@ -13,13 +13,13 @@
     <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.requestDate"></th>
     <th colspan="1" scope="colgroup"><input type="text" class="form-control" [(ngModel)]="filter.strWebService"></th>
     <th scope="colgroup">
-      <select class="form-select-sm" [(ngModel)]="filter.filterOption">
+      <select class="form-select-sm my-1" [(ngModel)]="filter.filterOption">
         <option value="1" selected>Contiene</option>
         <option value="2">Igual a</option>
       </select>
     </th>
     <th colspan="1" scope="colgroup">
-      <button type="button" class="btn btn-primary" (click)="onSearchTransaction()">Buscar</button>
+      <button type="button" class="btn btn-primary" (click)="onSearchTransaction()"><i class="bi bi-search"></i></button>
     </th>
   </tr>
   <tr>
@@ -40,7 +40,7 @@
     @for (transaction of tableFilter; track transaction.id) {
       <tr>
         <td>{{ transaction.id }}</td>
-        <td>{{ transaction.requestId }}</td>
+        <td class="text-break">{{ transaction.requestId }}</td>
         <td>{{ transaction.whoSendPetition }}</td>
         <td>{{ transaction.searchType }}</td>
         <td>{{ transaction.invoiceCard }}</td>

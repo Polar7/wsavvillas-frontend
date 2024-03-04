@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-blue-unibague" data-bs-theme="dark">
-  <div class="container-fluid">
+<nav class="d-flex justify-content-between navbar navbar-expand-lg bg-blue-unibague" data-bs-theme="dark">
+  <div class="d-flex justify-content-start">
     <a class="navbar-brand" href="#">
       <img src="assets/logo-Unibague-acreditacion.png"
            alt="Logo unibague" width="150" height="50">
@@ -12,7 +12,21 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Historial de transacciones</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" (click)="profile()" href="#">perfil</a>
+        </li>
       </ul>
     </div>
   </div>
+
+  <div class="d-flex justify-content-end text-end align-items-center gap-3">
+    @if (isLogged) {
+      <span class="text-white small">{{ getNameProfile() }}</span>
+      <img src="{{getImageProfile()}}" class="img-fluid logo-image" alt="Image profile">
+      <button class="btn btn-outline-danger me-2" type="submit" (click)="logout()">Cerrar sesión</button>
+    } @else {
+      <button class="btn btn-outline-danger me-2" type="submit" (click)="login()">Iniciar sesión</button>
+    }
+  </div>
 </nav>
+
