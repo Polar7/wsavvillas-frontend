@@ -3,6 +3,9 @@ import {CommonModule} from '@angular/common';
 import {AuthGoogleService} from "../../../core/service/auth-google.service";
 import {Router} from "@angular/router";
 
+/**
+ * Componente para la navbar de la aplicacion
+ */
 @Component({
   selector: 'app-header-nav',
   standalone: true,
@@ -60,21 +63,22 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
     console.log(this.authGoogle.getIdToken())
     console.log(this.authGoogle.getAccessToken())
     console.log(this.authGoogle.getRefreshToken())
-
   }
 
   /**
    * Retorna la ruta de la foto de perfil del usuario
    */
-  public getImageProfile() {
-    return this.authGoogle.getProfile()['picture'];
+  public getImageProfile(): string {
+    //return this.authGoogle.getProfile()['picture'];
+    return "https://cdn-icons-png.flaticon.com/512/6073/6073873.png";
   }
 
   /**
    * Retorna el nombre del perfil del usuario
    */
-  public getNameProfile() {
-    return this.authGoogle.getProfile()['given_name'];
+  public getNameProfile(): string {
+    //return this.authGoogle.getProfile()['given_name'];
+    return "Usuario autorizado prueba";
   }
 
 }
