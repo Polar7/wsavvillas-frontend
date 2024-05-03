@@ -25,7 +25,7 @@ export class AuthGoogleService {
       strictDiscoveryDocumentValidation: false,
       clientId: '35849955504-j4h1lrj1b409fqltu92kbvr6m0r89hj0.apps.googleusercontent.com',
       // Si se cambia la maquina remota, cambiar la IP de la redireccion
-      redirectUri: 'http://10.238.25.216:4200/login/google/callback',
+      redirectUri: 'http://wsavvillas.unibague.edu.co:4200/login/google/callback',
       scope: 'openid profile email',
       logoutUrl: window.location.origin
     }
