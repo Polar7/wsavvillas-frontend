@@ -24,7 +24,8 @@ export class AuthGoogleService {
       issuer: 'https://accounts.google.com',
       strictDiscoveryDocumentValidation: false,
       clientId: '35849955504-j4h1lrj1b409fqltu92kbvr6m0r89hj0.apps.googleusercontent.com',
-      redirectUri: 'http://localhost:4200/login/google/callback',
+      // Si se cambia la maquina remota, cambiar la IP de la redireccion
+      redirectUri: 'http://10.238.25.216:4200/login/google/callback',
       scope: 'openid profile email',
       logoutUrl: window.location.origin
     }
