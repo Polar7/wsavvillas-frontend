@@ -69,16 +69,16 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
    * Retorna la ruta de la foto de perfil del usuario
    */
   public getImageProfile(): string {
-    //return this.authGoogle.getProfile()['picture'];
-    return "https://cdn-icons-png.flaticon.com/512/6073/6073873.png";
+    return this.authGoogle.getProfile()['picture'];
+    //return "https://cdn-icons-png.flaticon.com/512/6073/6073873.png";
   }
 
   /**
    * Retorna el nombre del perfil del usuario
    */
   public getNameProfile(): string {
-    //return this.authGoogle.getProfile()['given_name'];
-    return "Usuario autorizado prueba";
+    return this.authGoogle.getProfile()['given_name'];
+    //return "Usuario autorizado prueba";
   }
 
 }

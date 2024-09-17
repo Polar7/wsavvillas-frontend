@@ -21,8 +21,8 @@ export class TransactionHistoryService {
     let headers = {
       'token-google': this.authGoogle.getAccessToken()
     }
-    
-    return this.http.get<TransactionHistoryDto[]>("http://localhost:8090/transactionHistory", { headers: headers});
+
+    return this.http.get<TransactionHistoryDto[]>("https://10.238.25.216:8443/transactionHistory", { headers: headers});
   }
 
 }
