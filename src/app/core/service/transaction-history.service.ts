@@ -22,7 +22,7 @@ export class TransactionHistoryService {
       'token-google': this.authGoogle.getAccessToken()
     }
 
-    return this.http.get<TransactionHistoryDto[]>("https://10.238.25.216:8443/transactionHistory", { headers: headers});
+    return this.http.get<TransactionHistoryDto[]>("https://wsavvillas.unibague.edu.co/backend/transactionHistory", { headers: headers});
   }
 
 }
